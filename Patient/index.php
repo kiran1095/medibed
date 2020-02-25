@@ -16,8 +16,6 @@
                         <th>Phone</th>
                         <th>Gender</th>
                         <th>Health_issue</th>
-                        <th>assigned_doctor</th>
-                        <th>assigned_nurse</th>
                         <th>Action</th>
                       </tr>
                       </thead>
@@ -49,10 +47,8 @@
                 "<td>"+data[user].phone+"</td>"+
                 "<td>"+((data[user].gender == 0)? "Male": "Female")+"</td>"+
                 "<td>"+data[user].health_issue+"</td>"+
-                "<td>"+data[user].assigned_doctor+"</td>"+
-                "<td>"+data[user].assigned_nurse+"</td>"+
                 
-                "<td><a href='update.php?id="+data[user].id+"'>Edit</a> | <a href='#' onClick=Remove('"+data[user].id+"')>Remove</a></td>"+
+                "<td><a href='#' onClick=Remove('"+data[user].id+"')>Remove</a></td>"+
                 "</tr>";
             }
             $(response).appendTo($("#patients"));
