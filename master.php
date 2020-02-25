@@ -113,8 +113,35 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/medibed/doctor/create.php">Create Doctor</a></li>
-            <li><a href="/medibed/doctor">All Doctors</a></li>
+            <li><a href="/medibed/Doctor/create.php">New Doctor</a></li>
+            <li><a href="/medibed/Doctor">All Doctors</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-medkit"></i> <span>patient</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/medibed/Patient/assign1.php">New Patient</a></li>
+            <li><a href="/medibed/Patient">Patients List</a></li>
+            <li><a href="/medibed/Patient/discharge.php">Discharged Patients</a></li>
+            
+
+
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-medkit"></i> <span>Nurses</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/medibed/Nurse/create.php">New Nurse</a></li>
+            <li><a href="/medibed/Nurse">Nurses List</a></li>
+            <li><a href="/medibed/Nurse/available.php">Available Nurses</a></li>
           </ul>
         </li>
       </ul>

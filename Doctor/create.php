@@ -80,7 +80,7 @@
             success: function (result) {
                 if (result['status'] == true) {
                     alert("Successfully Added New Doctor!");
-                    window.location.href = '/medibed/doctor';
+                    window.location.href = '/medibed/Doctor';
                 }
                 else {
                     alert(result['message']);
