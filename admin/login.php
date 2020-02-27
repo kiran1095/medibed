@@ -6,7 +6,7 @@
                   <!-- general form elements -->
                   <div class="box box-primary">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Login</h3>
+                      <h3 class="box-title">Admin Login</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -35,7 +35,7 @@
         $.ajax(
         {
             type: "POST",
-            url: '../api/user/login.php',
+            url: '../api/admin/login.php',
             dataType: 'json',
             data: {
                 
@@ -43,22 +43,12 @@
                 password: $("#password").val(),
                 },
                 error: function (result) {
-                //alert(result.responseText);
-               // alert("error"+data.error);
                 alert("Please check the error in your code");
             },
             success: function (result) {
-                if (result[status] == "doctor") {
-                    alert("You have Successfully Logged in Doctor!");
-                    window.location.href = '/medibed/Doctor/create.php';
-                }
-                else if(result[status]=="nurse"){
-                    alert("You have Successfully logged in  nurse");
-                    window.location.href='/medibed/Doctor/create.php';
-                }
-                else if(result[status]=="patient"){
-                    alert("You have Successfully logged in  patient");
-                    window.location.href='/medibed/Patient/assign.php';
+                if (result[status] == "true") {
+                    alert("Welcome Admin");
+                    window.location.href = '/medibed/Doctor/master.php';
                 }
                 else {
                     alert(result['message']);

@@ -8,35 +8,16 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `admins`
 --
-CREATE TABLE `admins` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `phone` varchar(15) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `admin` (`id` int(11) NOT NULL,`email` varchar(255) NOT NULL,`password` varchar(255) NOT NULL,`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 -- --------------------------------------------------------
 --
 -- Table structure for table `doctors`
 --
-CREATE TABLE `doctors` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `phone` varchar(15) NOT NULL,
-  `gender` int(11) NOT NULL,
-  `specialist` varchar(255) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
--- Dumping data for table `doctors`
---
-INSERT INTO `doctors` (`id`, `name`, `email`, `password`, `phone`, `gender`, `specialist`, `created`) VALUES
-(1, 'Ahsan Saeed', 'ahsansaeed067@gmail.com', 'Vm0xMFlWbFdWWGhVYmxKWFltdHdVRlpzV21GWFJscHlWV3RLVUZWVU1Eaz0=', '03218878961', 0, 'Heart', '2018-05-01 13:07:24');
--- --------------------------------------------------------
---
+create table doctor(id int(11),foreign key(id) references user(id),phone varchar(15) primary key,address varchar(255) NOT NULL,gender varchar(20) NOT NULL,specialist varchar(30) NOT NULL,created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);
+
+
+
 -- Table structure for table `nurses`
 --
 CREATE TABLE `nurses` (
@@ -50,15 +31,11 @@ CREATE TABLE `nurses` (
 --
 -- Dumping data for table `nurses`
 --
-INSERT INTO `nurses` (`id`, `name`, `email`, `password`, `phone`, `created`) VALUES
-(1, 'Ahsan', 'ahsansaeed067@gmail.com', 'MTIzNDU=', '03218878961', '2018-06-27 13:39:31'),
-(2, '2', 'ABC', 'WFla', '123456789', '2018-07-06 13:50:24'),
-(3, 'Shehryar khan', 'shehryar@appryx.com', 'YXBwcnl4', '3433243243', '2018-07-06 18:12:35');
--- --------------------------------------------------------
+
 --
 -- Table structure for table `patients`
 --
-CREATE TABLE `patients` (
+/*CREATE TABLE `patients` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `phone` varchar(15) NOT NULL,
@@ -68,18 +45,11 @@ CREATE TABLE `patients` (
   `nurse_id` int(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
+*/--
 -- Dumping data for table `patients`
 --
-INSERT INTO `patients` (`id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id`, `nurse_id`, `created`) VALUES
-(6, 'hjj', '9988596666', 1, 'vbjbb', 1, 1, '2018-06-26 13:12:18'),
-(9, '2', '123456789', 1, 'OK', 1, 1, '2018-07-06 13:59:25'),
-(10, '2', '123456789', 1, 'OK', 1, 1, '2018-07-06 14:13:13'),
-(11, 'shehryar', '123456789', 1, 'OK', 1, 1, '2018-07-06 17:36:08'),
-(14, 'Coding Infinite', '3433243243', 0, 'asd', 1, 1, '2018-07-06 18:39:42'),
-(15, 'Coding Infinite', '3433243243', 0, 'asd', 1, 1, '2018-07-06 18:40:07'),
-(16, 'Coding Infinite', '3433243243', 0, 'asd', 1, 1, '2018-07-06 18:40:59');
---
+create table patient(id int(11) auto_increment primary key,name varchar(255)UNIQUE NOT NULL,email varchar(255)UNIQUE NOT NULL,phone int(15)UNIQUE NOT NULL,gender int(11)NOT NULL,health_issue varchar(255)NOT NULL,doctor_id int(11),foreign key(doctor_id) references user(id),nurse_id int(11),foreign key(nurse_id) references user(id),created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,is_discharged int(11) NOT NULL);
+
 -- Indexes for dumped tables
 --
 --
@@ -145,7 +115,7 @@ PATIENT TABLE CREATION:
 
 create table patients(id int(11) auto_increment primary key,name varchar(255)UNIQUE NOT NULL,email varchar(255)UNIQUE NOT NULL,phone int(15)UNIQUE NOT NULL,gender int(11)NOT NULL,health_issue varchar(255)NOT NULL,assigned_doctor varchar(255),foreign key(assigned_doctor) references doctors(name),assigned_nurse varchar(255) UNIQUE,foreign key(assigned_nurse) references nurses(name),created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
-alter table patients add discharged_flag int(11);
+alter table patients add is_discharged int(11);
 
 
 

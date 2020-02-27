@@ -53,16 +53,15 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
-          <li class="treeview">
-          <a href="#"><i class="fa fa-medkit"></i> <span>User</span>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-medkit"></i> <span>Functions</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/medibed/admin/login.php">Admin</a></li>
-            <li><a href="/medibed/login/login.php">Login</a></li>
-            <li><a href="/medibed/login/registration.php">SignUp</a></li>
+            <li><a href="/medibed/login/login.php">Profile</a></li>
+            <li><a href="/medibed/login/registration.php">Assigned_patient</a></li>
           </ul>
         </li>
               
@@ -92,7 +91,7 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Home page</strong>
+    <strong>Nurse view</strong>
   </footer>
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->

@@ -47,15 +47,15 @@
               <!-- The user image in the navbar-->
               <img src="/medibed/dist/img/avatar5.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Ahmed Khalid</span>
+              <span class="hidden-xs">Admin</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
                 <img src="/medibed/dist/img/avatar5.png" class="img-circle" alt="User Image">
                 <p>
-                  Ahmed Khalid - Developer
-                  <small>Member since May. 2018</small>
+                  Admin - Developer
+                  <small>Member since 2020 feb</small>
                 </p>
               </li>
               
@@ -86,7 +86,7 @@
           <img src="/medibed/dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ahmed Khalid</p>
+          <p>Admin</p>
           <!-- Status -->
           <a href=""><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -113,7 +113,6 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/medibed/Doctor/create.php">New Doctor</a></li>
             <li><a href="/medibed/Doctor">All Doctors</a></li>
           </ul>
         </li>
@@ -139,7 +138,6 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/medibed/Nurse/create.php">New Nurse</a></li>
             <li><a href="/medibed/Nurse">Nurses List</a></li>
             <li><a href="/medibed/Nurse/available.php">Available Nurses</a></li>
           </ul>
@@ -173,7 +171,6 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="https://codinginfinite.com">Coding Infinite</a>.</strong> All rights reserved.
   </footer>
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->

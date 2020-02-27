@@ -1,4 +1,5 @@
 <?php
+session_start();
 class User{
  
     // database connection and table name
@@ -124,22 +125,23 @@ class User{
     //function for checking whether the user credentials are right or not
 
     function check(){
-        $query= "SELECT user FROM ".$this->table_name." WHERE email= '".$this->email."' and password= '".base64_encode($this->password)."'";
+        $query= "SELECT `id`,`user` FROM ".$this->table_name." WHERE email= '".$this->email."' and password= '".base64_encode($this->password)."'";
         $stmt=$this->conn->prepare($query);
         if($stmt->execute())
         {
             $stmt->store_result();
             $rowCount=$stmt->num_rows;
             if($rowCount==1){
-                return "doctor";
+                $user=$stmt->fetch_assoc();
+                $_SESSION["id"]=$user["id"];
+                return $user["user"];
             }
             else
             {
                 return null;
             }
         }
-        
-
+        return null;
     }
 
 

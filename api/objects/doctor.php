@@ -1,9 +1,10 @@
 <?php
+session_start();
 class Doctor{
  
     // database connection and table name
     private $conn;
-    private $table_name = "doctors";
+    private $table_name = "doctor";
  
     // object properties
     public $id;
@@ -14,7 +15,6 @@ class Doctor{
     public $gender;
     public $specialist;
     public $created;
- 
     // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
@@ -142,5 +142,30 @@ class Doctor{
         else{
             return false;
         }
+    }
+    $id=$_SESSION["id"];
+    // create doctor
+    function insert(){
+    
+        if($this->isAlreadyExist()){
+            return false;
+        }
+        
+        // query to insert record
+        $query = "INSERT INTO  ". $this->table_name ." 
+                        (`id`, `phone`, `gender`, `specialist`, `created_time`)
+                  VALUES
+                        ('".$this->id."', '".$this->phone."', '".$this->gender."', '".$this->specialist."', '".$this->created_time."')";
+    
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
+            return true;
+        }
+
+        return false;
     }
 }

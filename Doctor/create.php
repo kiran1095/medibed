@@ -1,49 +1,42 @@
 <?php 
-  $content = '<div class="row">
+  $content = '<div class="row" style="margin-left:25%;margin-top:6%">
                 <!-- left column -->
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <!-- general form elements -->
                   <div class="box box-primary">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Add Doctor</h3>
+                      <h3 class="box-title">Profile</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form">
                       <div class="box-body">
-                        <div class="form-group">
-                          <label for="exampleInputName1">Name</label>
-                          <input type="text" class="form-control" id="name" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="email" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
+                        
                         <div class="form-group">
                           <label for="exampleInputName1">Phone</label>
                           <input type="text" class="form-control" id="phone" placeholder="Enter Phone">
                         </div>
                         <div class="form-group">
+                          <label for="address">Address</label>
+                          <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputName1">Gender</label>
                             <div class="radio">
                                 <label>
-                                <input type="radio" name="gender" id="optionsRadios1" value="0" checked="">
+                                <input type="radio" name="gender" id="optionsRadios1" value="Male" checked="">
                                 Male
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" name="gender" id="optionsRadios2" value="1">
+                                <input type="radio" name="gender" id="optionsRadios2" value="Female">
                                 Female
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputName1">Specialist</label>
+                          <label for="exampleInputSpecialist">Specialist</label>
                           <input type="text" class="form-control" id="specialist" placeholder="Enter Specialization">
                         </div>
                       </div>
@@ -56,7 +49,7 @@
                   <!-- /.box -->
                 </div>
               </div>';
-  include('../master.php');
+  include('../doctor.php');
 ?>
 <script>
   function AddDoctor(){
@@ -67,10 +60,8 @@
             url: '../api/doctor/create.php',
             dataType: 'json',
             data: {
-                name: $("#name").val(),
-                email: $("#email").val(),        
-                password: $("#password").val(),
                 phone: $("#phone").val(),
+                address: $("#address").val(),
                 gender: $("input[name='gender']:checked").val(),
                 specialist: $("#specialist").val()
             },
@@ -79,7 +70,7 @@
             },
             success: function (result) {
                 if (result['status'] == true) {
-                    alert("Successfully Added New Doctor!");
+                    alert("Successfully completed the profile of Doctor!");
                     window.location.href = '/medibed/Doctor';
                 }
                 else {

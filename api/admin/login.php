@@ -2,32 +2,30 @@
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/user.php';
+include_once '../objects/admin.php';
 
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // prepare user object
-$user = new User($db);
+$user = new Admin($db);
  
 // set $user property values
 $user->email = $_POST['email'];
 $user->password = base64_encode($_POST['password']);
 
-// create the user
-$result=$user->check();
-if($result!=null){
+
+if($user->validate()){
     $user_arr=array(
-        "status"=> $result,
-        "message" => "Successfully Signup!",
-        "id" => $user->id
+        "status"=> true,
+        "message" => "Successfully Login!",
     );
 }
 else{
     $user_arr=array(
         "status" => false,
-        "message" => "Entered details in the form are wrong"
+        "message" => "Entered details of the admin are wrong"
     );
 }
 print_r(json_encode($user_arr));
