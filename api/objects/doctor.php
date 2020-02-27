@@ -143,7 +143,7 @@ class Doctor{
             return false;
         }
     }
-    $id=$_SESSION["id"];
+    //$id=$_SESSION["id"];
     // create doctor
     function insert(){
     
