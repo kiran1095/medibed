@@ -1,6 +1,6 @@
 <?php
 session_start();
-class User{
+class User extends Exception{
  
     // database connection and table name
     private $conn;
@@ -127,8 +127,12 @@ class User{
     function check(){
         $query= "SELECT `id`,`user` FROM ".$this->table_name." WHERE email= '".$this->email."' and password= '".base64_encode($this->password)."'";
         $stmt=$this->conn->prepare($query);
-        if($stmt->execute())
-        {
+        try{
+            if(!$stmt->execute())
+            {
+            throw new Exception("Could not be able to execute query");
+            }
+            else{    
             $stmt->store_result();
             $rowCount=$stmt->num_rows;
             if($rowCount==1){
@@ -138,8 +142,14 @@ class User{
             }
             else
             {
+                throw new Exception("could not able to execute");
                 return null;
             }
+        }
+    }
+        catch (Exception $e)
+        {
+            echo $e->getMessage();
         }
         return null;
     }
