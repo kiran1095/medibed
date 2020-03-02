@@ -17,7 +17,7 @@ $user->password = base64_encode($_POST['password']);
 
 
 
-    $query= "SELECT `id`,`user` FROM ".$this->table_name." WHERE email= '".$this->email."' and password= '".base64_encode($this->password)."'";
+    $query= "SELECT `id`,`user` FROM user WHERE email= '".$this->email."' and password= '".base64_encode($this->password)."'";
     $stmt=$this->conn->prepare($query);
     try{
         if(!$stmt->execute())

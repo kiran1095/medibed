@@ -30,5 +30,5 @@ else{
         "message" => "Entered details in the form are wrong"
     );
 }
-print_r(json_encode($user_arr));
+//print_r(json_encode($user_arr));
 ?>

@@ -16,7 +16,7 @@
                           <label for="exampleInputEmail">Email</label>
                           <input type="text" class="form-control" id="email" placeholder="Enter Email address">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" id="email" placeholder="Enter Password">
+                          <input type="password" class="form-control" id="password" placeholder="Enter Password">
                         </div>
                       <!-- /.box-body -->
                       <div class="box-footer">
@@ -43,9 +43,9 @@
                 password: $("#password").val(),
                 },
                 error: function (result) {
-                //alert(result.responseText);
+                console.log(result.responseText);
                // alert("error"+data.error);
-                alert("Please check the error in your code");
+                //alert("Please check the error in your code");
             },
             success: function (result) {
                 if (result[status] == "doctor") {
